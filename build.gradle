@@ -1,0 +1,33 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
+    implementation "joda-time:joda-time:2.2"
+    implementation "io.nats:jnats:2.13.1"
+    implementation 'org.json:json:20210307'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+application {
+    mainClass = 'natsTest.natsTest'
+}
+test {
+    useJUnitPlatform()
+}
+jar {
+    archiveBaseName = 'NATS-client'
+    archiveVersion =  '0.1.0'
+}
