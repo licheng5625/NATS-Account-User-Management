@@ -27,10 +27,10 @@ public class NatsUser {
             "*************************************************************\n";
 
     NatsUser(NatsAccount account) throws IOException, GeneralSecurityException {
-        this(account.getSigningNKey(),account.getAccountId());
+        this(account.getSigningNKey(),account.getId());
     }
     NatsUser(NatsAccount account, String userName) throws IOException, GeneralSecurityException {
-        this(account.getSigningNKey(),account.getAccountId(), userName);
+        this(account.getSigningNKey(),account.getId(), userName);
     }
     NatsUser(NKey accountSigningNKey, String accoundId, String userName) throws IOException, GeneralSecurityException {
         this(accountSigningNKey, accoundId);
