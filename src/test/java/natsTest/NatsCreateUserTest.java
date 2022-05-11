@@ -17,8 +17,8 @@ public class NatsCreateUserTest {
         String importedAccountId = "AXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
         NatsAccount account = new NatsAccount(  "ACOUNT_NAME" );
-        account.addImportRule(new NatsImportRule(importedAccountId, "*.dts.>", "receiving"));
-        account.addImportRule(new NatsImportRule(importedAccountId,"*.dts.>", "sending", NatsImportRule.Types.SERVICE));
+        account.addImportRule(new NatsImportRule(importedAccountId, "*.dts.>", null,"receiving"));
+        account.addImportRule(new NatsImportRule(importedAccountId,"*.dts.>", "API.PREFIX.dts.*","sending", NatsImportRule.Types.SERVICE));
         System.out.println(account.getJWT());
 
         account.pushToServer("nats://localhost:4222");

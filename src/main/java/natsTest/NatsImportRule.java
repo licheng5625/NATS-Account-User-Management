@@ -6,6 +6,7 @@ public class NatsImportRule {
     public String name = "default";
     public String subject = ">";
     public String account = null;
+    public String local_subject = null;
     public Types type = Types.STREAM;
     public enum Types {
         STREAM{
@@ -17,7 +18,7 @@ public class NatsImportRule {
         SERVICE{
             @Override
             public String toString() {
-                return super.toString().toLowerCase(Locale.ROOT) ;
+                return super.toString().toLowerCase() ;
             }
         }
     }
@@ -30,12 +31,16 @@ public class NatsImportRule {
         this(account);
         this.subject = subject;
     }
-    public NatsImportRule(String account , String subject, String name ){
-        this(account,subject);
+    public NatsImportRule(String account, String subject, String local_subject) {
+        this(account, subject);
+        this.local_subject = local_subject;
+    }
+    public NatsImportRule(String account , String subject, String local_subject, String name ){
+        this(account,subject,local_subject);
         this.name = name;
     }
-    public NatsImportRule(String account , String subject, String name, NatsImportRule.Types type){
-        this(account,subject, name);
+    public NatsImportRule(String account , String subject, String local_subject, String name, NatsImportRule.Types type){
+        this(account,subject,local_subject,name);
         this.type = type;
     }
 }

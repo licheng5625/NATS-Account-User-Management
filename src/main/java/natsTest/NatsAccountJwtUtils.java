@@ -110,10 +110,11 @@ public class NatsAccountJwtUtils {
             if (importRule.account != null) {
                 rule.put("account", importRule.account);
             }
+            if (importRule.local_subject != null) {
+                rule.put("local_subject", importRule.local_subject);
+            }
             rule.put("name", importRule.name);
             rule.put("subject", importRule.subject);
-            NatsImportRule.Types sd = importRule.type;
-            String sd2 = sd.toString();
             rule.put("type", importRule.type.toString());
             importRules.put(rule);
         }
